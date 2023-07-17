@@ -1,0 +1,62 @@
+postgres=# \c dwh
+You are now connected to database "dwh" as user "postgres".
+dwh=# \dt
+         List of relations
+ Schema |  Name  | Type  |  Owner
+--------+--------+-------+----------
+ public | region | table | postgres
+(1 row)
+
+dwh=# \copy region FROM 'G:/ABADS/SQL_MIni_Project/data/region.csv' WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 4
+dwh=# \dt
+           List of relations
+ Schema |   Name    | Type  |  Owner
+--------+-----------+-------+----------
+ public | region    | table | postgres
+ public | sales_rep | table | postgres
+(2 rows)
+
+dwh=# \copy sales_rep FROM 'G:/ABADS/SQL_MIni_Project/data/sales_rep.csv' WI
+TH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 50
+dwh=# \dt
+           List of relations
+ Schema |   Name    | Type  |  Owner
+--------+-----------+-------+----------
+ public | accounts  | table | postgres
+ public | region    | table | postgres
+ public | sales_rep | table | postgres
+(3 rows)
+
+dwh=# \copy accounts FROM 'G:/ABADS/SQL_MIni_Project/data/accounts.csv' WITH
+ (FORMAT csv, DELIMITER ',', HEADER);
+COPY 351
+dwh=# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | accounts   | table | postgres
+ public | region     | table | postgres
+ public | sales_rep  | table | postgres
+ public | web_events | table | postgres
+(4 rows)
+
+dwh=# \copy web_events FROM 'G:/ABADS/SQL_MIni_Project/data/web_events.csv'
+WITH (FORMAT csv, DELIMITER ',', HEADER);
+COPY 9073
+dwh=# \dt
+           List of relations
+ Schema |    Name    | Type  |  Owner
+--------+------------+-------+----------
+ public | accounts   | table | postgres
+ public | orders     | table | postgres
+ public | region     | table | postgres
+ public | sales_rep  | table | postgres
+ public | web_events | table | postgres
+(5 rows)
+
+dwh=# \copy orders FROM 'G:/ABADS/SQL_MIni_Project/data/orders.csv' WITH (FO
+RMAT csv, DELIMITER ',', HEADER);
+COPY 6912
+
